@@ -1,50 +1,47 @@
 #include "csro_common.h"
 
-int16_t position = 0;
-uint8_t last_phase = 0;
-uint8_t phase = 0;
+#define EXCITE_DURATION_MS 10;
 
-static void one_pulse(uint8_t dir)
+typedef enum
 {
-    if (phase == 0 || phase == 1 || phase == 7)
-    {
-        HAL_GPIO_WritePin(STEP1_GPIO_Port, STEP1_Pin, GPIO_PIN_SET);
-    }
-    else
-    {
-        HAL_GPIO_WritePin(STEP1_GPIO_Port, STEP1_Pin, GPIO_PIN_RESET);
-    }
-    if (phase == 1 || phase == 2 || phase == 3)
-    {
-        HAL_GPIO_WritePin(STEP2_GPIO_Port, STEP2_Pin, GPIO_PIN_SET);
-    }
-    else
-    {
-        HAL_GPIO_WritePin(STEP2_GPIO_Port, STEP2_Pin, GPIO_PIN_RESET);
-    }
+    close = 0,
+    open = 1,
+} direction;
 
-    if (phase == 3 || phase == 4 || phase == 5)
-    {
-        HAL_GPIO_WritePin(STEP3_GPIO_Port, STEP3_Pin, GPIO_PIN_SET);
-    }
-    else
-    {
-        HAL_GPIO_WritePin(STEP3_GPIO_Port, STEP3_Pin, GPIO_PIN_RESET);
-    }
+int16_t position = 0;
+uint8_t pending_phase = 0;
+uint8_t previous_phase = 0;
 
-    if (phase == 5 || phase == 6 || phase == 7)
-    {
-        HAL_GPIO_WritePin(STEP4_GPIO_Port, STEP4_Pin, GPIO_PIN_SET);
-    }
-    else
-    {
-        HAL_GPIO_WritePin(STEP4_GPIO_Port, STEP4_Pin, GPIO_PIN_RESET);
-    }
-    osDelay(10);
+static void Excite_Current_Phase(direction dir)
+{
+    HAL_GPIO_WritePin(STEP1_GPIO_Port, STEP1_Pin, (pending_phase == 0 || pending_phase == 1 || pending_phase == 7) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP2_GPIO_Port, STEP2_Pin, (pending_phase == 1 || pending_phase == 2 || pending_phase == 3) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP3_GPIO_Port, STEP3_Pin, (pending_phase == 3 || pending_phase == 4 || pending_phase == 5) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP4_GPIO_Port, STEP4_Pin, (pending_phase == 5 || pending_phase == 6 || pending_phase == 7) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+
+    osDelay(EXCITE_DURATION_MS);
+
     HAL_GPIO_WritePin(STEP1_GPIO_Port, STEP1_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(STEP2_GPIO_Port, STEP2_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(STEP3_GPIO_Port, STEP3_Pin, GPIO_PIN_RESET);
     HAL_GPIO_WritePin(STEP4_GPIO_Port, STEP4_Pin, GPIO_PIN_RESET);
+
+    previous_phase = pending_phase;
+    if (dir)
+}
+
+static void One_Pulse(uint8_t dir)
+{
+    HAL_GPIO_WritePin(STEP1_GPIO_Port, STEP1_Pin, (pending_phase == 0 || pending_phase == 1 || pending_phase == 7) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP2_GPIO_Port, STEP2_Pin, (pending_phase == 1 || pending_phase == 2 || pending_phase == 3) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP3_GPIO_Port, STEP3_Pin, (pending_phase == 3 || pending_phase == 4 || pending_phase == 5) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP4_GPIO_Port, STEP4_Pin, (pending_phase == 5 || pending_phase == 6 || pending_phase == 7) ? GPIO_PIN_SET : GPIO_PIN_RESET);
+    osDelay(EXCITE_DURATION_MS);
+    HAL_GPIO_WritePin(STEP1_GPIO_Port, STEP1_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP2_GPIO_Port, STEP2_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP3_GPIO_Port, STEP3_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(STEP4_GPIO_Port, STEP4_Pin, GPIO_PIN_RESET);
+
     last_phase = phase;
     if (dir == 1)
     {
@@ -63,7 +60,7 @@ static void one_pulse(uint8_t dir)
     sys_regs.holdings[5] = position;
 }
 
-static void prepare_pulse(uint16_t holdms)
+static void Prepare_Pulse(uint16_t holdms)
 {
     if (last_phase == 0 || last_phase == 1 || last_phase == 7)
     {
@@ -106,7 +103,7 @@ void Csro_Stepper_Init(void)
 {
     for (size_t i = 0; i < 600; i++)
     {
-        one_pulse(0);
+        One_Pulse(0);
     }
     position = 0;
 }
@@ -121,10 +118,10 @@ void Csro_Stepper_Set_Position(uint16_t target)
         {
             if (firstpulse == 1)
             {
-                prepare_pulse(100);
+                Prepare_Pulse(100);
                 firstpulse = 0;
             }
-            one_pulse(1);
+            One_Pulse(1);
         }
     }
     else if (target < position)
@@ -133,10 +130,10 @@ void Csro_Stepper_Set_Position(uint16_t target)
         {
             if (firstpulse == 1)
             {
-                prepare_pulse(100);
+                Prepare_Pulse(100);
                 firstpulse = 0;
             }
-            one_pulse(0);
+            One_Pulse(0);
         }
     }
     firstpulse = 1;

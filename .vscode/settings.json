@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "csro_common.h": "c",
+        "mb_config.h": "c"
+    }
+}
