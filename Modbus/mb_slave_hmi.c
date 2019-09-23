@@ -102,7 +102,7 @@ void slave_hmi_write_holdings_callback(void)
                     slave_hmi.regs->holdings[slave_hmi.write_addr + slave_hmi.i] = value;
                 }
             }
-						else if ((slave_hmi.write_addr + slave_hmi.i) == 4)
+            else if ((slave_hmi.write_addr + slave_hmi.i) == 4)
             {
                 uint16_t value = slave_hmi.rx_buf[7 + 2 * slave_hmi.i] * 256 + slave_hmi.rx_buf[8 + 2 * slave_hmi.i];
                 if (value >= 0 && value <= 500)

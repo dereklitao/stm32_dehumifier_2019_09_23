@@ -92,7 +92,7 @@ void csro_master_cps_init(UART_HandleTypeDef *uart)
     __HAL_UART_ENABLE_IT(master_cps.uart, UART_IT_IDLE);
 }
 
-void csro_master_cps_write_task(void)
+void csro_master_cps_read_write_task(void)
 {
     if (osSemaphoreWait(write_cps_sem, osWaitForever) == osOK)
     {

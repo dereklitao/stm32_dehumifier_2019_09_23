@@ -20,7 +20,7 @@
 #define MODBUS_FC_WRITE_AND_READ_REGISTERS 0x17
 
 #define MODBUS_BUFFER_LENGTH 512
-#define MODBUS_TIMEOUT 500
+#define MODBUS_TIMEOUT 800
 
 #define MODBUS_DISC_MAX 256
 #define MODBUS_COIL_MAX 256
@@ -129,8 +129,9 @@ void csro_master_aqi_init(UART_HandleTypeDef *Uart);
 void csro_master_aqi_read_task(void);
 
 void csro_master_cps_init(UART_HandleTypeDef *Uart);
-void csro_master_cps_write_task(void);
 void csro_master_cps_read_task(void);
+void csro_master_cps_write_task(void);
+void csro_master_cps_read_write_task(void);
 
 void csro_slave_hmi_init(UART_HandleTypeDef *uart);
 void csro_slave_hmi_wait_cmd(void);
