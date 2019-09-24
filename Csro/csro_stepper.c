@@ -1,7 +1,7 @@
 #include "csro_common.h"
 
-#define PREPARE_DURATION_MS 100;
-#define EXCITE_DURATION_MS 10;
+#define PREPARE_DURATION_MS 100
+#define EXCITE_DURATION_MS 10
 
 uint16_t position = 600;
 uint16_t phase = 0;

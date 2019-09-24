@@ -166,3 +166,14 @@ MDK-ARM/Dehumidifier_20190923/tasks.o
 MDK-ARM/Dehumidifier_20190923/tim.o
 MDK-ARM/Dehumidifier_20190923/timers.o
 MDK-ARM/Dehumidifier_20190923/usart.o
+MDK-ARM/Dehumidifier_20190923.uvguix.Litao
+MDK-ARM/Dehumidifier_20190923/freertos.o
+MDK-ARM/Dehumidifier_20190923/freertos.d
+MDK-ARM/Dehumidifier_20190923/freertos.crf
+MDK-ARM/Dehumidifier_20190923/Dehumidifier_20190923.map
+MDK-ARM/Dehumidifier_20190923/Dehumidifier_20190923.lnp
+MDK-ARM/Dehumidifier_20190923/Dehumidifier_20190923.htm
+MDK-ARM/Dehumidifier_20190923/Dehumidifier_20190923.hex
+MDK-ARM/Dehumidifier_20190923/Dehumidifier_20190923.build_log.htm
+MDK-ARM/Dehumidifier_20190923/Dehumidifier_20190923_Dehumidifier_20190923.dep
+MDK-ARM/Dehumidifier_20190923/csro_stepper.o

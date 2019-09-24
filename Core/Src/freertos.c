@@ -26,6 +26,7 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+#include "csro_common.h"
 
 /* USER CODE END Includes */
 
@@ -161,10 +162,12 @@ void task01_most_important_task(void const *argument)
 void task02_cps_read_write_task(void const *argument)
 {
   /* USER CODE BEGIN task02_cps_read_write_task */
+  csro_master_cps_init(&huart3);
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    osDelay(500);
+    csro_master_cps_read_write_task();
   }
   /* USER CODE END task02_cps_read_write_task */
 }
@@ -179,10 +182,11 @@ void task02_cps_read_write_task(void const *argument)
 void task03_hmi_wait_cmd_task(void const *argument)
 {
   /* USER CODE BEGIN task03_hmi_wait_cmd_task */
+  csro_slave_hmi_init(&huart2);
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    csro_slave_hmi_wait_cmd();
   }
   /* USER CODE END task03_hmi_wait_cmd_task */
 }
@@ -197,10 +201,12 @@ void task03_hmi_wait_cmd_task(void const *argument)
 void task04_aqi_read_task(void const *argument)
 {
   /* USER CODE BEGIN task04_aqi_read_task */
+  csro_master_aqi_init(&huart1);
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    osDelay(1000);
+    csro_master_aqi_read_task();
   }
   /* USER CODE END task04_aqi_read_task */
 }
@@ -215,10 +221,16 @@ void task04_aqi_read_task(void const *argument)
 void task05_pwm_adc_dac_gpio_task(void const *argument)
 {
   /* USER CODE BEGIN task05_pwm_adc_dac_gpio_task */
+  Csro_Adc_Init();
+  Csro_Dac_Init();
+  Csro_Pwm_Init();
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    osDelay(100);
+    Csro_Adc_Calculate_Value();
+    Csro_Gpio_Read_Write_Pin();
+    Csro_Pwm_Set_Duty();
   }
   /* USER CODE END task05_pwm_adc_dac_gpio_task */
 }
@@ -233,10 +245,12 @@ void task05_pwm_adc_dac_gpio_task(void const *argument)
 void task06_stepper_task(void const *argument)
 {
   /* USER CODE BEGIN task06_stepper_task */
+  Csro_Stepper_Set_Position(0);
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    osDelay(200);
+    Csro_Stepper_Set_Position(sys_regs.holdings[4]);
   }
   /* USER CODE END task06_stepper_task */
 }
@@ -254,7 +268,8 @@ void task07_misc_func_task(void const *argument)
   /* Infinite loop */
   for (;;)
   {
-    osDelay(1);
+    osDelay(500);
+    HAL_GPIO_TogglePin(LED_GPIO_Port, LED_Pin);
   }
   /* USER CODE END task07_misc_func_task */
 }
