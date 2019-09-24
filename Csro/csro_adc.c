@@ -13,7 +13,6 @@ void Csro_Adc_Calculate_Value(void)
 {
     float sum[10] = {0};
     float voltage[10] = {0};
-    float vadc = 0;
     for (uint8_t i = 0; i < 10; i++)
     {
         for (uint8_t j = 0; j < 10; j++)
@@ -21,7 +20,7 @@ void Csro_Adc_Calculate_Value(void)
             sum[j] += adc_data[i * 10 + j];
         }
     }
-    vadc = 1.225 * 4096.0 / (sum[9] / 10.0);
+    float vadc = 1.225 * 4096.0 / (sum[9] / 10.0);
     for (uint8_t i = 0; i < 10; i++)
     {
         voltage[i] = (sum[i] / 10.0) * vadc / 4096.0;

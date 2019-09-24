@@ -338,7 +338,7 @@
               <MiscControls></MiscControls>
               <Define>USE_HAL_DRIVER,STM32F103xE,USE_HAL_DRIVER,STM32F103xE</Define>
               <Undefine></Undefine>
-              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include</IncludePath>
+              <IncludePath>../Core/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc;../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy;../Middlewares/Third_Party/FreeRTOS/Source/include;../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS;../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3;../Drivers/CMSIS/Device/ST/STM32F1xx/Include;../Drivers/CMSIS/Include;..\Csro;..\Modbus</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -388,9 +388,6 @@
               <FilePath>startup_stm32f103xe.s</FilePath>
             </File>
           </Files>
-        </Group>
-        <Group>
-          <GroupName>::CMSIS</GroupName>
         </Group>
         <Group>
           <GroupName>Application/User/Core</GroupName>
@@ -611,6 +608,79 @@
               <FilePath>../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/port.c</FilePath>
             </File>
           </Files>
+        </Group>
+        <Group>
+          <GroupName>Modbus</GroupName>
+          <Files>
+            <File>
+              <FileName>mb_crc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modbus\mb_crc.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb_master.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modbus\mb_master.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb_master_aqi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modbus\mb_master_aqi.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb_master_cps.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modbus\mb_master_cps.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb_slave.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modbus\mb_slave.c</FilePath>
+            </File>
+            <File>
+              <FileName>mb_slave_hmi.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Modbus\mb_slave_hmi.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>Csro</GroupName>
+          <Files>
+            <File>
+              <FileName>csro_adc.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Csro\csro_adc.c</FilePath>
+            </File>
+            <File>
+              <FileName>csro_common.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Csro\csro_common.c</FilePath>
+            </File>
+            <File>
+              <FileName>csro_dac.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Csro\csro_dac.c</FilePath>
+            </File>
+            <File>
+              <FileName>csro_gpio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Csro\csro_gpio.c</FilePath>
+            </File>
+            <File>
+              <FileName>csro_pwm.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Csro\csro_pwm.c</FilePath>
+            </File>
+            <File>
+              <FileName>csro_stepper.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Csro\csro_stepper.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>::CMSIS</GroupName>
         </Group>
       </Groups>
     </Target>
