@@ -2,7 +2,7 @@
 
 modbus_master master_aqi;
 static osSemaphoreId uart_idle_sem;
-static osMutexId uart_source_mut;
+static osTimerId uart_idle_tim;
 
 void master_aqi_set_tx(void)
 {
@@ -20,6 +20,14 @@ void master_aqi_uart_idle(void)
     {
         __HAL_UART_CLEAR_IDLEFLAG(master_aqi.uart);
         master_aqi.rx_len = MODBUS_BUFFER_LENGTH - master_aqi.uart->hdmarx->Instance->CNDTR;
+        osTimerStart(uart_idle_tim, 3);
+    }
+}
+
+void master_aqi_uart_idle_timeout_callback(void const *argument)
+{
+    if (master_aqi.rx_len == (MODBUS_BUFFER_LENGTH - master_aqi.uart->hdmarx->Instance->CNDTR))
+    {
         osSemaphoreRelease(uart_idle_sem);
     }
 }
@@ -52,8 +60,10 @@ void csro_master_aqi_init(UART_HandleTypeDef *uart)
 {
     osSemaphoreDef(uart_idle_semaphore);
     uart_idle_sem = osSemaphoreCreate(osSemaphore(uart_idle_semaphore), 1);
-    osMutexDef(uart_source_mutex);
-    uart_source_mut = osMutexCreate(osMutex(uart_source_mutex));
+
+    osTimerDef(uart_idle_timer, master_aqi_uart_idle_timeout_callback);
+    uart_idle_tim = osTimerCreate(osTimer(uart_idle_timer), osTimerOnce, NULL);
+
     master_aqi.uart = uart;
     master_aqi.master_set_tx = master_aqi_set_tx;
     master_aqi.master_set_rx = master_aqi_set_rx;
@@ -65,20 +75,16 @@ void csro_master_aqi_init(UART_HandleTypeDef *uart)
 
 void csro_master_aqi_read_task(void)
 {
-    if (osMutexWait(uart_source_mut, osWaitForever) == osOK)
+    uint16_t result[10];
+    master_aqi.slave_id = 0x10;
+    master_aqi.read_addr = 0x10;
+    master_aqi.read_qty = 8;
+    if (master_read_holding_regs(&master_aqi, result) == 1)
     {
-        uint16_t result[10];
-        master_aqi.slave_id = 0x10;
-        master_aqi.read_addr = 0x10;
-        master_aqi.read_qty = 8;
-        if (master_read_holding_regs(&master_aqi, result) == 1)
-        {
-            sys_regs.inputs[8] = ((result[0] >> 8) * 10) + ((result[0] & 0x00FF) & 0x0F);
-            sys_regs.inputs[9] = ((result[1] >> 8) * 10) + ((result[1] & 0x00FF) & 0x0F);
-            sys_regs.inputs[10] = result[2];
-            sys_regs.inputs[11] = result[4];
-            sys_regs.inputs[12] = result[7];
-        }
-        osMutexRelease(uart_source_mut);
+        sys_regs.inputs[8] = ((result[0] >> 8) * 10) + ((result[0] & 0x00FF) & 0x0F);
+        sys_regs.inputs[9] = ((result[1] >> 8) * 10) + ((result[1] & 0x00FF) & 0x0F);
+        sys_regs.inputs[10] = result[2];
+        sys_regs.inputs[11] = result[4];
+        sys_regs.inputs[12] = result[7];
     }
 }
