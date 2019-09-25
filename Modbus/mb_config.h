@@ -133,11 +133,11 @@ uint16_t slave_crc16(modbus_slave *slave, uint8_t *buffer);
 
 uint8_t master_read_discs(modbus_master *master, uint8_t *result);
 uint8_t master_read_coils(modbus_master *master, uint8_t *result);
-uint8_t master_read_input_regs(modbus_master *master, uint16_t *result);
-uint8_t master_read_holding_regs(modbus_master *master, uint16_t *result);
+uint8_t master_read_input_regs(modbus_master *master, int16_t *result);
+uint8_t master_read_holding_regs(modbus_master *master, int16_t *result);
 uint8_t master_write_single_coil(modbus_master *master, uint8_t *value);
-uint8_t master_write_single_holding_reg(modbus_master *master, uint16_t *value);
-uint8_t master_write_multi_holding_regs(modbus_master *master, uint16_t *value);
+uint8_t master_write_single_holding_reg(modbus_master *master, int16_t *value);
+uint8_t master_write_multi_holding_regs(modbus_master *master, int16_t *value);
 
 void slave_handle_cmd(modbus_slave *slave);
 

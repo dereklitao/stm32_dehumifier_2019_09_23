@@ -69,7 +69,7 @@ uint8_t master_read_coils(modbus_master *master, uint8_t *result)
     return 0;
 }
 
-uint8_t master_read_input_regs(modbus_master *master, uint16_t *result)
+uint8_t master_read_input_regs(modbus_master *master, int16_t *result)
 {
     master->func_code = MODBUS_FC_READ_INPUT_REGISTERS;
     master->tx_len = 0;
@@ -94,7 +94,7 @@ uint8_t master_read_input_regs(modbus_master *master, uint16_t *result)
     return 0;
 }
 
-uint8_t master_read_holding_regs(modbus_master *master, uint16_t *result)
+uint8_t master_read_holding_regs(modbus_master *master, int16_t *result)
 {
     master->func_code = MODBUS_FC_READ_HOLDING_REGISTERS;
     master->tx_len = 0;
@@ -144,7 +144,7 @@ uint8_t master_write_single_coil(modbus_master *master, uint8_t *value)
     return 0;
 }
 
-uint8_t master_write_single_holding_reg(modbus_master *master, uint16_t *value)
+uint8_t master_write_single_holding_reg(modbus_master *master, int16_t *value)
 {
     master->func_code = MODBUS_FC_WRITE_SINGLE_REGISTER;
     master->tx_len = 0;
@@ -169,7 +169,7 @@ uint8_t master_write_single_holding_reg(modbus_master *master, uint16_t *value)
     return 0;
 }
 
-uint8_t master_write_multi_holding_regs(modbus_master *master, uint16_t *value)
+uint8_t master_write_multi_holding_regs(modbus_master *master, int16_t *value)
 {
     master->func_code = MODBUS_FC_WRITE_MULTIPLE_REGISTERS;
     master->tx_len = 0;

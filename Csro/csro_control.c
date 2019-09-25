@@ -82,7 +82,7 @@ void Csro_Fan_Auto_Control(void)
     {
         fan_speed_mode speed = fan_speed_temp();
         fan_speed_mode humi_spd = fan_speed_humi();
-        fan_speed_mode co2_spd = fan_speed_pm();
+        fan_speed_mode co2_spd = fan_speed_co2();
         fan_speed_mode pm_spd = fan_speed_pm();
         sys_regs.inputs[INPUT_FAN_REASON] = 1;
 

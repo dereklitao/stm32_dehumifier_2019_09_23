@@ -58,11 +58,6 @@ uint8_t master_cps_send_receive(uint16_t timeout)
     return master_cps.status;
 }
 
-void master_cps_trigger_write(void)
-{
-    osSemaphoreRelease(write_cps_sem);
-}
-
 void csro_master_cps_init(UART_HandleTypeDef *uart)
 {
     osSemaphoreDef(uart_idle_semaphore);
@@ -79,99 +74,43 @@ void csro_master_cps_init(UART_HandleTypeDef *uart)
     master_cps.master_set_rx = master_cps_set_rx;
     master_cps.master_uart_idle = master_cps_uart_idle;
     master_cps.master_send_receive = master_cps_send_receive;
-    master_cps.master_trigger_write = master_cps_trigger_write;
 
     __HAL_UART_ENABLE_IT(master_cps.uart, UART_IT_IDLE);
 }
 
 void csro_master_cps_read_write_task(void)
 {
-    if (osSemaphoreWait(write_cps_sem, osWaitForever) == osOK)
+    int16_t result[50] = {0};
+    master_cps.read_addr = 0x00;
+    master_cps.read_qty = INPUT_CPS_STATUS_LENGTH;
+    if (master_read_holding_regs(&master_cps, result) == 1)
     {
-        if (osMutexWait(uart_source_mut, osWaitForever) == osOK)
+        for (uint8_t i = 0; i < INPUT_CPS_STATUS_LENGTH; i++)
         {
-            for (uint8_t i = 0; i < 4; i++)
-            {
-                if (sys_regs.holding_flags[0x1E + i] != 0)
-                {
-                    master_cps.write_addr = 0x1E + i;
-                    master_cps.write_qty = 1;
-                    master_write_single_holding_reg(&master_cps, &sys_regs.holdings[0x1E + i]);
-                    sys_regs.holding_flags[0x1E + i] = 0;
-                }
-            }
-            for (uint8_t i = 0; i < 4; i++)
-            {
-                if (sys_regs.holding_flags[0x36 + i] != 0)
-                {
-                    master_cps.write_addr = 0x36 + i;
-                    master_cps.write_qty = 1;
-                    master_write_single_holding_reg(&master_cps, &sys_regs.holdings[0x36 + i]);
-                    sys_regs.holding_flags[0x36 + i] = 0;
-                }
-            }
-            if (sys_regs.holdings[0x51] != 0)
-            {
-                master_cps.write_addr = 0x51;
-                master_cps.write_qty = 3;
-                master_write_multi_holding_regs(&master_cps, &sys_regs.holdings[0x51]);
-                sys_regs.holding_flags[0x51] = 0;
-            }
-            osMutexRelease(uart_source_mut);
+            sys_regs.inputs[INPUT_CPS_STATUS_START + i] = result[i];
         }
-    }
-}
-
-void csro_master_cps_read_task(void)
-{
-    if (osMutexWait(uart_source_mut, osWaitForever) == osOK)
-    {
-        uint16_t result[35];
-        master_cps.read_addr = 0x00;
-        master_cps.read_qty = 30;
-        if (master_read_holding_regs(&master_cps, result) == 1)
-        {
-            for (uint8_t i = 0; i < 30; i++)
-            {
-                sys_regs.inputs[16 + i] = result[i];
-            }
-        }
-        osMutexRelease(uart_source_mut);
     }
 
-    if (osMutexWait(uart_source_mut, osWaitForever) == osOK)
-    {
-        uint16_t result[5];
-        master_cps.read_addr = 0x1E;
-        master_cps.read_qty = 4;
-        if (master_read_holding_regs(&master_cps, result) == 1)
-        {
-            for (uint8_t i = 0; i < 4; i++)
-            {
-                if (sys_regs.holding_flags[30 + i] == 0)
-                {
-                    sys_regs.holdings[30 + i] = result[i];
-                }
-            }
-        }
-        osMutexRelease(uart_source_mut);
-    }
+    master_cps.write_addr = 0x1E;
+    master_cps.write_qty = 4;
+    int16_t value[5] = {0};
+    value[0] = csro_cps.ctrl;
+    value[2] = csro_cps.mode;
+    value[3] = csro_cps.fan;
+    master_write_multi_holding_regs(&master_cps, value);
 
-    if (osMutexWait(uart_source_mut, osWaitForever) == osOK)
-    {
-        uint16_t result[5];
-        master_cps.read_addr = 0x36;
-        master_cps.read_qty = 4;
-        if (master_read_holding_regs(&master_cps, result) == 1)
-        {
-            for (uint8_t i = 0; i < 4; i++)
-            {
-                if (sys_regs.holding_flags[54 + i] == 0)
-                {
-                    sys_regs.holdings[54 + i] = result[i];
-                }
-            }
-        }
-        osMutexRelease(uart_source_mut);
-    }
+    master_cps.write_addr = 0x36;
+    master_cps.write_qty = 4;
+    value[0] = csro_cps.cold_temp;
+    value[1] = csro_cps.cold_interval;
+    value[2] = csro_cps.hot_temp;
+    value[3] = csro_cps.hot_interval;
+    master_write_multi_holding_regs(&master_cps, value);
+
+    master_cps.write_addr = 0x51;
+    master_cps.write_qty = 3;
+    value[0] = csro_cps.room_temp;
+    value[1] = csro_cps.pipe_temp;
+    value[2] = csro_cps.error_code;
+    master_write_multi_holding_regs(&master_cps, value);
 }

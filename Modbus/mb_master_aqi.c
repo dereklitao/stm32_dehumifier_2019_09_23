@@ -77,16 +77,16 @@ void csro_master_aqi_init(UART_HandleTypeDef *uart)
 
 void csro_master_aqi_read_task(void)
 {
-    uint16_t result[10];
+    int16_t result[10];
     master_aqi.slave_id = 0x10;
     master_aqi.read_addr = 0x10;
     master_aqi.read_qty = 8;
     if (master_read_holding_regs(&master_aqi, result) == 1)
     {
-        sys_regs.inputs[8] = ((result[0] >> 8) * 10) + ((result[0] & 0x00FF) & 0x0F);
-        sys_regs.inputs[9] = ((result[1] >> 8) * 10) + ((result[1] & 0x00FF) & 0x0F);
-        sys_regs.inputs[10] = result[2];
-        sys_regs.inputs[11] = result[4];
-        sys_regs.inputs[12] = result[7];
+        sys_regs.inputs[INPUT_AQIT] = ((result[0] >> 8) * 10) + ((result[0] & 0x00FF) & 0x0F);
+        sys_regs.inputs[INPUT_AQIH] = ((result[1] >> 8) * 10) + ((result[1] & 0x00FF) & 0x0F);
+        sys_regs.inputs[INPUT_AQIP] = result[2];
+        sys_regs.inputs[INPUT_AQIC] = result[4];
+        sys_regs.inputs[INPUT_AQIV] = result[7];
     }
 }

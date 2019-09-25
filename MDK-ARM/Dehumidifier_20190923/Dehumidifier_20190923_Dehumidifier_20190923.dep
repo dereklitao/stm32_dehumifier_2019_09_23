@@ -231,8 +231,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5D886F24)
 I (..\Csro\csro_common.h)(0x5D8B0C44)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Core/Inc/gpio.h)(0x5D887F7E)
 I (../Core/Inc/usart.h)(0x5D887F84)
 F (../Core/Src/tim.c)(0x5D887F83)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\tim.o --omf_browse dehumidifier_20190923\tim.crf --depend dehumidifier_20190923\tim.d)
@@ -343,8 +343,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3/portmacro.h)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x5D886F24)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h)(0x5D886F24)
@@ -1149,7 +1149,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h)(0x5D886F24
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/task.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/list.h)(0x5D886F24)
 F (..\Modbus\mb_crc.c)(0x5D8848EC)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_crc.o --omf_browse dehumidifier_20190923\mb_crc.crf --depend dehumidifier_20190923\mb_crc.d)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5D886F20)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x5D887F84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5D886F20)
@@ -1180,7 +1180,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1198,8 +1198,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5D886F24
 I (../Core/Inc/gpio.h)(0x5D887F7E)
 I (../Core/Inc/main.h)(0x5D887F84)
 I (../Core/Inc/usart.h)(0x5D887F84)
-F (..\Modbus\mb_master.c)(0x5D8848EC)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_master.o --omf_browse dehumidifier_20190923\mb_master.crf --depend dehumidifier_20190923\mb_master.d)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
+F (..\Modbus\mb_master.c)(0x5D8B1C0A)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_master.o --omf_browse dehumidifier_20190923\mb_master.crf --depend dehumidifier_20190923\mb_master.d)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5D886F20)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x5D887F84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5D886F20)
@@ -1230,7 +1230,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1248,8 +1248,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5D886F24
 I (../Core/Inc/gpio.h)(0x5D887F7E)
 I (../Core/Inc/main.h)(0x5D887F84)
 I (../Core/Inc/usart.h)(0x5D887F84)
-F (..\Modbus\mb_master_aqi.c)(0x5D89FD2B)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_master_aqi.o --omf_browse dehumidifier_20190923\mb_master_aqi.crf --depend dehumidifier_20190923\mb_master_aqi.d)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
+F (..\Modbus\mb_master_aqi.c)(0x5D8B1FBD)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_master_aqi.o --omf_browse dehumidifier_20190923\mb_master_aqi.crf --depend dehumidifier_20190923\mb_master_aqi.d)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5D886F20)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x5D887F84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5D886F20)
@@ -1280,7 +1280,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1298,8 +1298,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5D886F24
 I (../Core/Inc/gpio.h)(0x5D887F7E)
 I (../Core/Inc/main.h)(0x5D887F84)
 I (../Core/Inc/usart.h)(0x5D887F84)
-F (..\Modbus\mb_master_cps.c)(0x5D8ADC21)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_master_cps.o --omf_browse dehumidifier_20190923\mb_master_cps.crf --depend dehumidifier_20190923\mb_master_cps.d)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
+F (..\Modbus\mb_master_cps.c)(0x5D8B1F84)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_master_cps.o --omf_browse dehumidifier_20190923\mb_master_cps.crf --depend dehumidifier_20190923\mb_master_cps.d)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5D886F20)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x5D887F84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5D886F20)
@@ -1330,7 +1330,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1349,7 +1349,7 @@ I (../Core/Inc/gpio.h)(0x5D887F7E)
 I (../Core/Inc/main.h)(0x5D887F84)
 I (../Core/Inc/usart.h)(0x5D887F84)
 F (..\Modbus\mb_slave.c)(0x5D8848EC)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_slave.o --omf_browse dehumidifier_20190923\mb_slave.crf --depend dehumidifier_20190923\mb_slave.d)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5D886F20)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x5D887F84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5D886F20)
@@ -1380,7 +1380,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1398,8 +1398,8 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5D886F24
 I (../Core/Inc/gpio.h)(0x5D887F7E)
 I (../Core/Inc/main.h)(0x5D887F84)
 I (../Core/Inc/usart.h)(0x5D887F84)
-F (..\Modbus\mb_slave_hmi.c)(0x5D888532)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_slave_hmi.o --omf_browse dehumidifier_20190923\mb_slave_hmi.crf --depend dehumidifier_20190923\mb_slave_hmi.d)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
+F (..\Modbus\mb_slave_hmi.c)(0x5D8B1FD6)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\mb_slave_hmi.o --omf_browse dehumidifier_20190923\mb_slave_hmi.crf --depend dehumidifier_20190923\mb_slave_hmi.d)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5D886F20)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x5D887F84)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h)(0x5D886F20)
@@ -1430,7 +1430,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1480,8 +1480,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1531,8 +1531,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1550,7 +1550,7 @@ I (../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h)(0x5D886F24
 I (../Core/Inc/gpio.h)(0x5D887F7E)
 I (../Core/Inc/main.h)(0x5D887F84)
 I (../Core/Inc/usart.h)(0x5D887F84)
-F (..\Csro\csro_control.c)(0x5D8B14FA)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\csro_control.o --omf_browse dehumidifier_20190923\csro_control.crf --depend dehumidifier_20190923\csro_control.d)
+F (..\Csro\csro_control.c)(0x5D8B1FE2)(--c99 -c --cpu Cortex-M3 -D__EVAL -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM3 -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\Csro -I ..\Modbus-I.\RTE\_Dehumidifier_20190923-IC:\Users\Litao\AppData\Local\Arm\Packs\ARM\CMSIS\5.5.1\CMSIS\Core\Include-IC:\Users\Litao\AppData\Local\Arm\Packs\Keil\STM32F1xx_DFP\2.3.0\Device\Include-D__UVISION_VERSION="528" -D_RTE_ -DSTM32F10X_HD -DUSE_HAL_DRIVER -DSTM32F103xE -DUSE_HAL_DRIVER -DSTM32F103xE-o dehumidifier_20190923\csro_control.o --omf_browse dehumidifier_20190923\csro_control.crf --depend dehumidifier_20190923\csro_control.d)
 I (..\Csro\csro_common.h)(0x5D8B0C44)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x5D886F20)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x5D887F84)
@@ -1582,8 +1582,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
@@ -1633,8 +1633,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h)(0x5D886F20)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x5D886F20)
-I (..\Modbus\mb_config.h)(0x5D8AFCFA)
-I (..\Modbus\mb_address.h)(0x5D8B157E)
+I (..\Modbus\mb_config.h)(0x5D8B1BF3)
+I (..\Modbus\mb_address.h)(0x5D8B174B)
 I (../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h)(0x5D886F24)
 I (../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h)(0x5D886F24)
 I (../Core/Inc/FreeRTOSConfig.h)(0x5D887F83)
