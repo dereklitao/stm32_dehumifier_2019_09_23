@@ -46,12 +46,10 @@
 "dehumidifier_20190923\mb_master_cps.o"
 "dehumidifier_20190923\mb_slave.o"
 "dehumidifier_20190923\mb_slave_hmi.o"
-"dehumidifier_20190923\csro_adc.o"
 "dehumidifier_20190923\csro_common.o"
-"dehumidifier_20190923\csro_dac.o"
-"dehumidifier_20190923\csro_gpio.o"
-"dehumidifier_20190923\csro_pwm.o"
 "dehumidifier_20190923\csro_stepper.o"
+"dehumidifier_20190923\csro_control.o"
+"dehumidifier_20190923\csro_autorun.o"
 --library_type=microlib --strict --scatter "Dehumidifier_20190923\Dehumidifier_20190923.sct"
 --summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
 --info sizes --info totals --info unused --info veneers

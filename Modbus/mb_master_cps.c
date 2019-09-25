@@ -2,19 +2,18 @@
 
 modbus_master master_cps;
 luko_cps csro_cps;
+
 static osSemaphoreId uart_idle_sem;
-static osSemaphoreId write_cps_sem;
-static osMutexId uart_source_mut;
-static osTimerId write_cps_tim;
+static osTimerId uart_idle_tim;
 
 void master_cps_set_tx(void)
 {
-    HAL_GPIO_WritePin(UEn3_GPIO_Port, UEn3_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(master_cps.txrx_port, master_cps.txrx_pin_num, GPIO_PIN_SET);
 }
 
 void master_cps_set_rx(void)
 {
-    HAL_GPIO_WritePin(UEn3_GPIO_Port, UEn3_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(master_cps.txrx_port, master_cps.txrx_pin_num, GPIO_PIN_RESET);
 }
 
 void master_cps_uart_idle(void)
@@ -23,6 +22,14 @@ void master_cps_uart_idle(void)
     {
         __HAL_UART_CLEAR_IDLEFLAG(master_cps.uart);
         master_cps.rx_len = MODBUS_BUFFER_LENGTH - master_cps.uart->hdmarx->Instance->CNDTR;
+        osTimerStart(uart_idle_tim, 5);
+    }
+}
+
+void master_cps_uart_idle_timeout_callback(void const *argument)
+{
+    if (master_cps.rx_len == (MODBUS_BUFFER_LENGTH - master_cps.uart->hdmarx->Instance->CNDTR))
+    {
         osSemaphoreRelease(uart_idle_sem);
     }
 }
@@ -40,25 +47,15 @@ uint8_t master_cps_send_receive(uint16_t timeout)
     if (osSemaphoreWait(uart_idle_sem, timeout) == osOK)
     {
         master_cps.status = 1;
-        sys_regs.discs[0x0B] = 1;
+        sys_regs.discs[DISC_CPS_COM] = 1;
     }
     else
     {
         master_cps.status = 0;
-        sys_regs.discs[0x0B] = 0;
+        sys_regs.discs[DISC_CPS_COM] = 0;
     }
     HAL_UART_DMAStop(master_cps.uart);
     return master_cps.status;
-}
-
-void master_write_cps_tim_callback(void const *argument)
-{
-    static uint16_t count = 0;
-    sys_regs.holding_flags[0x51] = 1;
-    sys_regs.holdings[0x51] = sys_regs.inputs[0x04];
-    sys_regs.holdings[0x52] = sys_regs.inputs[0x03];
-    sys_regs.holdings[0x53] = count++;
-    osSemaphoreRelease(write_cps_sem);
 }
 
 void master_cps_trigger_write(void)
@@ -71,18 +68,12 @@ void csro_master_cps_init(UART_HandleTypeDef *uart)
     osSemaphoreDef(uart_idle_semaphore);
     uart_idle_sem = osSemaphoreCreate(osSemaphore(uart_idle_semaphore), 1);
 
-    osSemaphoreDef(write_cps_semaphore);
-    write_cps_sem = osSemaphoreCreate(osSemaphore(write_cps_semaphore), 1);
-
-    osMutexDef(uart_source_mutex);
-    uart_source_mut = osMutexCreate(osMutex(uart_source_mutex));
-
-    osTimerDef(write_cps_timer, master_write_cps_tim_callback);
-    write_cps_tim = osTimerCreate(osTimer(write_cps_timer), osTimerPeriodic, NULL);
-
-    osTimerStart(write_cps_tim, 2500);
+    osTimerDef(uart_idle_timer, master_cps_uart_idle_timeout_callback);
+    uart_idle_tim = osTimerCreate(osTimer(uart_idle_timer), osTimerOnce, NULL);
 
     master_cps.uart = uart;
+    master_cps.txrx_port = UEn3_GPIO_Port;
+    master_cps.txrx_pin_num = UEn3_Pin;
     master_cps.slave_id = 0x01;
     master_cps.master_set_tx = master_cps_set_tx;
     master_cps.master_set_rx = master_cps_set_rx;

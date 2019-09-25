@@ -47,6 +47,7 @@ dehumidifier_20190923\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/inc
 dehumidifier_20190923\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
 dehumidifier_20190923\freertos.o: ..\Csro\csro_common.h
 dehumidifier_20190923\freertos.o: ..\Modbus\mb_config.h
+dehumidifier_20190923\freertos.o: ..\Modbus\mb_address.h
 dehumidifier_20190923\freertos.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
 dehumidifier_20190923\freertos.o: ../Core/Inc/gpio.h
 dehumidifier_20190923\freertos.o: ../Core/Inc/usart.h

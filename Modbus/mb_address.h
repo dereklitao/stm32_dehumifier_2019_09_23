@@ -50,9 +50,9 @@
 #define INPUT_AQIC 11
 #define INPUT_AQIV 12
 #define INPUT_EC1 13
-#define INPUT_EC1 14
-#define INPUT_EC1 15
-#define INPUT_EC1 16
+#define INPUT_EC2 14
+#define INPUT_EC3 15
+#define INPUT_EC4 16
 #define INPUT_STEPPER 17
 #define INPUT_FAN_REASON 18
 

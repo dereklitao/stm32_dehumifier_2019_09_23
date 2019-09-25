@@ -6,12 +6,12 @@ static osTimerId uart_idle_tim;
 
 void master_aqi_set_tx(void)
 {
-    HAL_GPIO_WritePin(UEn4_GPIO_Port, UEn4_Pin, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(master_aqi.txrx_port, master_aqi.txrx_pin_num, GPIO_PIN_SET);
 }
 
 void master_aqi_set_rx(void)
 {
-    HAL_GPIO_WritePin(UEn4_GPIO_Port, UEn4_Pin, GPIO_PIN_RESET);
+    HAL_GPIO_WritePin(master_aqi.txrx_port, master_aqi.txrx_pin_num, GPIO_PIN_RESET);
 }
 
 void master_aqi_uart_idle(void)
@@ -20,7 +20,7 @@ void master_aqi_uart_idle(void)
     {
         __HAL_UART_CLEAR_IDLEFLAG(master_aqi.uart);
         master_aqi.rx_len = MODBUS_BUFFER_LENGTH - master_aqi.uart->hdmarx->Instance->CNDTR;
-        osTimerStart(uart_idle_tim, 3);
+        osTimerStart(uart_idle_tim, 5);
     }
 }
 
@@ -65,6 +65,8 @@ void csro_master_aqi_init(UART_HandleTypeDef *uart)
     uart_idle_tim = osTimerCreate(osTimer(uart_idle_timer), osTimerOnce, NULL);
 
     master_aqi.uart = uart;
+    master_aqi.txrx_port = UEn4_GPIO_Port;
+    master_aqi.txrx_pin_num = UEn4_Pin;
     master_aqi.master_set_tx = master_aqi_set_tx;
     master_aqi.master_set_rx = master_aqi_set_rx;
     master_aqi.master_uart_idle = master_aqi_uart_idle;

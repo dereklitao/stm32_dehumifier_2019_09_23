@@ -1,6 +1,8 @@
 #include "csro_common.h"
 #include "gpio.h"
 #include "tim.h"
+#include "adc.h"
+#include "dac.h"
 
 uint32_t adc_data[100];
 

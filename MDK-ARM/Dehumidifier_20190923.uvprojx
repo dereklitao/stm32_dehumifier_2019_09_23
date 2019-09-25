@@ -648,34 +648,24 @@
           <GroupName>Csro</GroupName>
           <Files>
             <File>
-              <FileName>csro_adc.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Csro\csro_adc.c</FilePath>
-            </File>
-            <File>
               <FileName>csro_common.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Csro\csro_common.c</FilePath>
             </File>
             <File>
-              <FileName>csro_dac.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Csro\csro_dac.c</FilePath>
-            </File>
-            <File>
-              <FileName>csro_gpio.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Csro\csro_gpio.c</FilePath>
-            </File>
-            <File>
-              <FileName>csro_pwm.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Csro\csro_pwm.c</FilePath>
-            </File>
-            <File>
               <FileName>csro_stepper.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Csro\csro_stepper.c</FilePath>
+            </File>
+            <File>
+              <FileName>csro_control.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Csro\csro_control.c</FilePath>
+            </File>
+            <File>
+              <FileName>csro_autorun.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\Csro\csro_autorun.c</FilePath>
             </File>
           </Files>
         </Group>

@@ -41,3 +41,12 @@ dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source
 dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/mpu_wrappers.h
 dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/task.h
 dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/list.h
+dehumidifier_20190923\stm32f1xx_it.o: ..\Modbus\mb_config.h
+dehumidifier_20190923\stm32f1xx_it.o: ..\Modbus\mb_address.h
+dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS/cmsis_os.h
+dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/timers.h
+dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/queue.h
+dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/semphr.h
+dehumidifier_20190923\stm32f1xx_it.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/event_groups.h
+dehumidifier_20190923\stm32f1xx_it.o: ../Core/Inc/gpio.h
+dehumidifier_20190923\stm32f1xx_it.o: ../Core/Inc/usart.h
