@@ -1,6 +1,7 @@
 #include "mb_config.h"
 
 modbus_master master_cps;
+luko_cps csro_cps;
 static osSemaphoreId uart_idle_sem;
 static osSemaphoreId write_cps_sem;
 static osMutexId uart_source_mut;

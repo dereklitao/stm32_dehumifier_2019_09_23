@@ -2,6 +2,7 @@
 #define __MB_CONFIG_H
 
 #include "stm32f1xx_hal.h"
+#include "mb_address.h"
 #include "cmsis_os.h"
 #include "gpio.h"
 #include "usart.h"
@@ -70,7 +71,7 @@ typedef struct
     void (*master_trigger_write)(void);
 } modbus_master;
 
-typedef struct modbus_slave
+typedef struct
 {
     UART_HandleTypeDef *uart;
     GPIO_TypeDef *txrx_port;
@@ -107,10 +108,25 @@ typedef struct modbus_slave
     void (*slave_write_holdings_callback)(void);
 } modbus_slave;
 
+typedef struct
+{
+    int16_t ctrl;
+    int16_t mode;
+    int16_t fan;
+    int16_t cold_temp;
+    int16_t cold_interval;
+    int16_t hot_temp;
+    int16_t hot_interval;
+    int16_t room_temp;
+    int16_t pipe_temp;
+    int16_t error_code;
+} luko_cps;
+
 extern modbus_master master_aqi;
 extern modbus_master master_cps;
 extern modbus_slave slave_hmi;
 extern modbus_regs sys_regs;
+extern luko_cps csro_cps;
 
 uint16_t master_crc16(modbus_master *master, uint8_t *buffer);
 uint16_t slave_crc16(modbus_slave *slave, uint8_t *buffer);

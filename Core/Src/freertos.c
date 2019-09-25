@@ -221,16 +221,12 @@ void task04_aqi_read_task(void const *argument)
 void task05_pwm_adc_dac_gpio_task(void const *argument)
 {
   /* USER CODE BEGIN task05_pwm_adc_dac_gpio_task */
-  Csro_Adc_Init();
-  Csro_Dac_Init();
-  Csro_Pwm_Init();
+  Csro_Control_init();
   /* Infinite loop */
   for (;;)
   {
     osDelay(100);
-    Csro_Adc_Calculate_Value();
-    Csro_Gpio_Read_Write_Pin();
-    Csro_Pwm_Set_Duty();
+    Csro_Run_System_Manual();
   }
   /* USER CODE END task05_pwm_adc_dac_gpio_task */
 }
@@ -249,7 +245,7 @@ void task06_stepper_task(void const *argument)
   /* Infinite loop */
   for (;;)
   {
-    osDelay(200);
+    osDelay(100);
     Csro_Stepper_Set_Position(sys_regs.holdings[4]);
   }
   /* USER CODE END task06_stepper_task */
