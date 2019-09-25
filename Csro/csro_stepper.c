@@ -35,7 +35,7 @@ void Csro_Stepper_Set_Position(uint16_t target)
             phase = (phase + 1) % 8;
             Excite_Phase(EXCITE_DURATION_MS);
             position = position + 1;
-            sys_regs.holdings[5] = position;
+            sys_regs.inputs[INPUT_STEPPER] = position;
         }
     }
     else if (target < position)
@@ -50,7 +50,7 @@ void Csro_Stepper_Set_Position(uint16_t target)
             phase = (phase + 7) % 8;
             Excite_Phase(EXCITE_DURATION_MS);
             position = position - 1;
-            sys_regs.holdings[5] = position;
+            sys_regs.inputs[INPUT_STEPPER] = position;
         }
     }
     init_flag = 1;

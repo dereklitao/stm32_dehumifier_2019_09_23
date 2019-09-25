@@ -45,12 +45,12 @@ uint8_t master_aqi_send_receive(uint16_t timeout)
     if (osSemaphoreWait(uart_idle_sem, timeout) == osOK)
     {
         master_aqi.status = 1;
-        sys_regs.discs[0x0A] = 1;
+        sys_regs.coils[COIL_AQI_COM] = 1;
     }
     else
     {
         master_aqi.status = 0;
-        sys_regs.discs[0x0A] = 0;
+        sys_regs.coils[COIL_AQI_COM] = 0;
     }
     HAL_UART_DMAStop(master_aqi.uart);
     return master_aqi.status;
@@ -83,10 +83,12 @@ void csro_master_aqi_read_task(void)
     master_aqi.read_qty = 8;
     if (master_read_holding_regs(&master_aqi, result) == 1)
     {
-        sys_regs.inputs[INPUT_AQIT] = ((result[0] >> 8) * 10) + ((result[0] & 0x00FF) & 0x0F);
-        sys_regs.inputs[INPUT_AQIH] = ((result[1] >> 8) * 10) + ((result[1] & 0x00FF) & 0x0F);
-        sys_regs.inputs[INPUT_AQIP] = result[2];
-        sys_regs.inputs[INPUT_AQIC] = result[4];
-        sys_regs.inputs[INPUT_AQIV] = result[7];
+        sys_regs.holdings[HOLDING_AQIT] = result[0];
+        sys_regs.holdings[HOLDING_AQIH] = result[1];
+        //sys_regs.holdings[HOLDING_AQIT] = ((result[0] >> 8) * 10) + ((result[0] & 0x00FF) & 0x0F);
+        //sys_regs.holdings[HOLDING_AQIH] = ((result[1] >> 8) * 10) + ((result[1] & 0x00FF) & 0x0F);
+        sys_regs.holdings[HOLDING_AQIP] = result[2];
+        sys_regs.holdings[HOLDING_AQIC] = result[4];
+        sys_regs.holdings[HOLDING_AQIV] = result[7];
     }
 }

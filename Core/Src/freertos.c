@@ -226,7 +226,7 @@ void task05_pwm_adc_dac_gpio_task(void const *argument)
   for (;;)
   {
     osDelay(100);
-    Csro_Run_System_Manual();
+    Csro_Auto_Run();
   }
   /* USER CODE END task05_pwm_adc_dac_gpio_task */
 }

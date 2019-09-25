@@ -1,30 +1,6 @@
 #ifndef __MB_ADDRESS_H
 #define __MB_ADDRESS_H
 
-//Disc address
-#define DISC_SW1 0
-#define DISC_SW2 1
-#define DISC_SW3 2
-#define DISC_SW4 3
-#define DISC_SW5 4
-#define DISC_SW6 5
-#define DISC_SRLY1 6
-#define DISC_SRLY2 7
-#define DISC_SRLY3 8
-#define DISC_SRLY4 9
-#define DISC_DRLY1 10
-#define DISC_DRLY2 11
-#define DISC_DRLY3 12
-#define DISC_DRLY4 13
-#define DISC_AQI_COM 14
-#define DISC_CPS_COM 15
-#define DISC_ERR_NTC1 16
-#define DISC_ERR_NTC2 17
-#define DISC_ERR_NTC3 18
-#define DISC_ERR_NTC4 19
-#define DISC_ERR_SEN1 20
-#define DISC_ERR_SEN2 21
-
 //Coil address
 #define COIL_SRLY1 0
 #define COIL_SRLY2 1
@@ -34,28 +10,24 @@
 #define COIL_DRLY2 5
 #define COIL_DRLY3 6
 #define COIL_DRLY4 7
+#define COIL_SW1 8
+#define COIL_SW2 9
+#define COIL_SW3 10
+#define COIL_SW4 11
+#define COIL_SW5 12
+#define COIL_SW6 13
+#define COIL_ERR_NTC1 14
+#define COIL_ERR_NTC2 15
+#define COIL_ERR_NTC3 16
+#define COIL_ERR_NTC4 17
+#define COIL_ERR_SEN1 18
+#define COIL_ERR_SEN2 19
+#define COIL_AQI_COM 20
+#define COIL_CPS_COM 21
 
 //Inpit address
-#define INPUT_NTC1 0
-#define INPUT_NTC2 1
-#define INPUT_NTC3 2
-#define INPUT_NTC4 3
-#define INPUT_S1T 4
-#define INPUT_S1H 5
-#define INPUT_S2T 6
-#define INPUT_S2H 7
-#define INPUT_AQIT 8
-#define INPUT_AQIH 9
-#define INPUT_AQIP 10
-#define INPUT_AQIC 11
-#define INPUT_AQIV 12
-#define INPUT_EC1 13
-#define INPUT_EC2 14
-#define INPUT_EC3 15
-#define INPUT_EC4 16
-#define INPUT_STEPPER 17
-#define INPUT_FAN_REASON 18
-
+#define INPUT_STEPPER 18
+#define INPUT_FAN_REASON 19
 #define INPUT_CPS_STATUS_START 20
 #define INPUT_CPS_STATUS_LENGTH 30
 
@@ -65,16 +37,32 @@
 #define HOLDING_UTEMP 2
 #define HOLDING_UFAN 3
 
-#define HOLDING_EC1 10
-#define HOLDING_EC2 11
-#define HOLDING_EC3 12
-#define HOLDING_EC4 13
-#define HOLDING_CPS_CONTROL 14
-#define HOLDING_CPS_MODE 15
-#define HOLDING_CPS_ROOMFAN 16
-#define HOLDING_CPS_COLD_TEMP 17
-#define HOLDING_CPS_COLD_INTERVAL 18
-#define HOLDING_CPS_HOT_TEMP 19
-#define HOLDING_CPS_HOT_INTERVAL 20
+#define HOLDING_CPS_CONTROL 10
+#define HOLDING_CPS_MODE 11
+#define HOLDING_CPS_ROOMFAN 12
+#define HOLDING_CPS_COLD_TEMP 13
+#define HOLDING_CPS_COLD_INTERVAL 14
+#define HOLDING_CPS_HOT_TEMP 15
+#define HOLDING_CPS_HOT_INTERVAL 16
+#define HOLDING_CPS_ERROR_CODE 18
+
+#define HOLDING_NTC1 20
+#define HOLDING_NTC2 21
+#define HOLDING_NTC3 22
+#define HOLDING_NTC4 23
+#define HOLDING_S1T 24
+#define HOLDING_S1H 25
+#define HOLDING_S2T 26
+#define HOLDING_S2H 27
+#define HOLDING_EC1 28
+#define HOLDING_EC2 29
+#define HOLDING_EC3 30
+#define HOLDING_EC4 31
+#define HOLDING_STEPPER 32
+#define HOLDING_AQIT 33
+#define HOLDING_AQIH 34
+#define HOLDING_AQIP 35
+#define HOLDING_AQIC 36
+#define HOLDING_AQIV 37
 
 #endif

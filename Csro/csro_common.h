@@ -27,8 +27,8 @@ float Csro_Calculate_ntc3950_Temperature_from_Resvalue(float res_value);
 float Csro_Calculate_ntc3380_Temperature_from_Resvalue(float res_value);
 
 void Csro_Control_init(void);
-void Csro_Run_System_Manual(void);
-void Csro_Run_System_Auto(void);
+void Csro_Auto_Run(void);
+void Csro_Smart_Control(void);
 
 void Csro_Stepper_Set_Position(uint16_t target);
 

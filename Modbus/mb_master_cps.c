@@ -1,7 +1,6 @@
 #include "mb_config.h"
 
 modbus_master master_cps;
-luko_cps csro_cps;
 
 static osSemaphoreId uart_idle_sem;
 static osTimerId uart_idle_tim;
@@ -47,12 +46,12 @@ uint8_t master_cps_send_receive(uint16_t timeout)
     if (osSemaphoreWait(uart_idle_sem, timeout) == osOK)
     {
         master_cps.status = 1;
-        sys_regs.discs[DISC_CPS_COM] = 1;
+        sys_regs.coils[COIL_CPS_COM] = 1;
     }
     else
     {
         master_cps.status = 0;
-        sys_regs.discs[DISC_CPS_COM] = 0;
+        sys_regs.coils[COIL_CPS_COM] = 0;
     }
     HAL_UART_DMAStop(master_cps.uart);
     return master_cps.status;
@@ -94,23 +93,23 @@ void csro_master_cps_read_write_task(void)
     master_cps.write_addr = 0x1E;
     master_cps.write_qty = 4;
     int16_t value[5] = {0};
-    value[0] = csro_cps.ctrl;
-    value[2] = csro_cps.mode;
-    value[3] = csro_cps.fan;
+    value[0] = sys_regs.holdings[HOLDING_CPS_CONTROL];
+    value[2] = sys_regs.holdings[HOLDING_CPS_MODE];
+    value[3] = sys_regs.holdings[HOLDING_CPS_ROOMFAN];
     master_write_multi_holding_regs(&master_cps, value);
 
     master_cps.write_addr = 0x36;
     master_cps.write_qty = 4;
-    value[0] = csro_cps.cold_temp;
-    value[1] = csro_cps.cold_interval;
-    value[2] = csro_cps.hot_temp;
-    value[3] = csro_cps.hot_interval;
+    value[0] = sys_regs.holdings[HOLDING_CPS_COLD_TEMP];
+    value[1] = sys_regs.holdings[HOLDING_CPS_COLD_INTERVAL];
+    value[2] = sys_regs.holdings[HOLDING_CPS_HOT_TEMP];
+    value[3] = sys_regs.holdings[HOLDING_CPS_HOT_INTERVAL];
     master_write_multi_holding_regs(&master_cps, value);
 
     master_cps.write_addr = 0x51;
     master_cps.write_qty = 3;
-    value[0] = csro_cps.room_temp;
-    value[1] = csro_cps.pipe_temp;
-    value[2] = csro_cps.error_code;
+    value[0] = sys_regs.holdings[HOLDING_AQIT];
+    value[1] = sys_regs.holdings[HOLDING_NTC2];
+    value[2] = sys_regs.holdings[HOLDING_CPS_ERROR_CODE];
     master_write_multi_holding_regs(&master_cps, value);
 }
