@@ -103,7 +103,7 @@ static void csro_execute_output(void)
 
 void Csro_Auto_Run(void)
 {
-    //csro_update_input();
+    csro_update_input();
     Csro_Smart_Control();
     csro_execute_output();
 }

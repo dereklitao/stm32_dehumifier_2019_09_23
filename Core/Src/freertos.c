@@ -166,7 +166,6 @@ void task02_cps_read_write_task(void const *argument)
   /* Infinite loop */
   for (;;)
   {
-    osDelay(500);
     csro_master_cps_read_write_task();
   }
   /* USER CODE END task02_cps_read_write_task */

@@ -89,6 +89,7 @@ void csro_master_cps_read_write_task(void)
             sys_regs.inputs[INPUT_CPS_STATUS_START + i] = result[i];
         }
     }
+    osDelay(200);
 
     master_cps.write_addr = 0x1E;
     master_cps.write_qty = 4;
@@ -97,6 +98,7 @@ void csro_master_cps_read_write_task(void)
     value[2] = sys_regs.holdings[HOLDING_CPS_MODE];
     value[3] = sys_regs.holdings[HOLDING_CPS_ROOMFAN];
     master_write_multi_holding_regs(&master_cps, value);
+    osDelay(200);
 
     master_cps.write_addr = 0x36;
     master_cps.write_qty = 4;
@@ -105,6 +107,7 @@ void csro_master_cps_read_write_task(void)
     value[2] = sys_regs.holdings[HOLDING_CPS_HOT_TEMP];
     value[3] = sys_regs.holdings[HOLDING_CPS_HOT_INTERVAL];
     master_write_multi_holding_regs(&master_cps, value);
+    osDelay(200);
 
     master_cps.write_addr = 0x51;
     master_cps.write_qty = 3;
@@ -112,4 +115,5 @@ void csro_master_cps_read_write_task(void)
     value[1] = sys_regs.holdings[HOLDING_NTC2];
     value[2] = sys_regs.holdings[HOLDING_CPS_ERROR_CODE];
     master_write_multi_holding_regs(&master_cps, value);
+    osDelay(200);
 }
