@@ -32,7 +32,7 @@ void Csro_Stepper_Set_Position(uint16_t target)
                 Excite_Phase(PREPARE_DURATION_MS);
                 init_flag = 0;
             }
-            phase = (phase + 1) % 8;
+            phase = (phase + 7) % 8;
             Excite_Phase(EXCITE_DURATION_MS);
             position = position + 1;
             sys_regs.inputs[INPUT_STEPPER] = position;
@@ -47,7 +47,7 @@ void Csro_Stepper_Set_Position(uint16_t target)
                 Excite_Phase(PREPARE_DURATION_MS);
                 init_flag = 0;
             }
-            phase = (phase + 7) % 8;
+            phase = (phase + 1) % 8;
             Excite_Phase(EXCITE_DURATION_MS);
             position = position - 1;
             sys_regs.inputs[INPUT_STEPPER] = position;

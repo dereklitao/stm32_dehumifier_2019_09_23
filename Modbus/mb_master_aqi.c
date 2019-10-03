@@ -83,10 +83,10 @@ void csro_master_aqi_read_task(void)
     master_aqi.read_qty = 8;
     if (master_read_holding_regs(&master_aqi, result) == 1)
     {
-        sys_regs.holdings[HOLDING_AQIT] = result[0];
-        sys_regs.holdings[HOLDING_AQIH] = result[1];
-        //sys_regs.holdings[HOLDING_AQIT] = ((result[0] >> 8) * 10) + ((result[0] & 0x00FF) & 0x0F);
-        //sys_regs.holdings[HOLDING_AQIH] = ((result[1] >> 8) * 10) + ((result[1] & 0x00FF) & 0x0F);
+        //sys_regs.holdings[HOLDING_AQIT] = result[0];
+        //sys_regs.holdings[HOLDING_AQIH] = result[1];
+        sys_regs.holdings[HOLDING_AQIT] = ((result[0] >> 8) * 10) + ((result[0] & 0x00FF) & 0x0F);
+        sys_regs.holdings[HOLDING_AQIH] = ((result[1] >> 8) * 10) + ((result[1] & 0x00FF) & 0x0F);
         sys_regs.holdings[HOLDING_AQIP] = result[2];
         sys_regs.holdings[HOLDING_AQIC] = result[4];
         sys_regs.holdings[HOLDING_AQIV] = result[7];

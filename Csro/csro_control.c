@@ -70,7 +70,8 @@ static void csro_cps_auto_control(void)
             sys_regs.holdings[HOLDING_CPS_MODE] = HOT;
         }
     }
-    sys_regs.holdings[HOLDING_CPS_ROOMFAN] = (sys_regs.holdings[HOLDING_EC1] <= 238) ? 1 : (sys_regs.holdings[HOLDING_EC1] <= 576) ? 2 : 3;
+
+    sys_regs.holdings[HOLDING_CPS_ROOMFAN] = (sys_regs.holdings[HOLDING_EC1] - 500 <= 110) ? 1 : (sys_regs.holdings[HOLDING_EC1] - 500 <= 220) ? 2 : 3;
     sys_regs.holdings[HOLDING_CPS_COLD_TEMP] = sys_regs.holdings[HOLDING_UTEMP];
     sys_regs.holdings[HOLDING_CPS_HOT_TEMP] = sys_regs.holdings[HOLDING_UTEMP];
 }
@@ -105,11 +106,11 @@ void csro_fan_auto_control(void)
             speed = pm_spd;
             sys_regs.inputs[INPUT_FAN_REASON] = 4;
         }
-        sys_regs.holdings[HOLDING_EC1] = (238 * speed) % 1000;
+        sys_regs.holdings[HOLDING_EC1] = (500 + (110 * speed)) % 1000;
     }
     else
     {
-        sys_regs.holdings[HOLDING_EC1] = (sys_regs.holdings[HOLDING_UFAN] * 238) % 1000;
+        sys_regs.holdings[HOLDING_EC1] = ((sys_regs.holdings[HOLDING_UFAN] * 110) + 500) % 1000;
         sys_regs.inputs[INPUT_FAN_REASON] = 0;
     }
 }
@@ -136,7 +137,7 @@ static void csro_newair_auto_control(void)
     else
     {
         sys_regs.coils[COIL_DRLY1] = 1;
-        sys_regs.holdings[HOLDING_EC2] = ((newair_co2 > newair_pm ? newair_co2 : newair_pm) * 238) % 1000;
+        sys_regs.holdings[HOLDING_EC2] = (((newair_co2 > newair_pm ? newair_co2 : newair_pm) * 110) + 500) % 1000;
         sys_regs.holdings[HOLDING_EC3] = (uint16_t)(0.8 * sys_regs.holdings[HOLDING_EC2]);
     }
 }
@@ -162,6 +163,59 @@ static void csro_heater_auto_control(void)
 
 static void csro_valve_auto_control(void)
 {
+    if (sys_regs.holdings[HOLDING_UPOWER] == 0) // airsys power off
+    {
+        if (sys_regs.coils[COIL_SW6] == 1)
+        {
+            sys_regs.holdings[HOLDING_STEPPER] = 500;
+        }
+        else
+        {
+            sys_regs.holdings[HOLDING_STEPPER] = 0;
+        }
+        return;
+    }
+    if (sys_regs.holdings[HOLDING_UMODE] == HOT)
+    {
+        sys_regs.holdings[HOLDING_STEPPER] = 480;
+    }
+    else if (sys_regs.holdings[HOLDING_UMODE] == COLD || sys_regs.holdings[HOLDING_UMODE] == DEHUMI)
+    {
+        float temp_diff = (sys_regs.holdings[HOLDING_AQIT] / 10.0) - (sys_regs.holdings[HOLDING_UTEMP] / 10.0);
+
+        if (temp_diff < 0)
+        {
+            float humi = sys_regs.holdings[HOLDING_AQIH] / 10.0;
+            if (humi >= 80)
+            {
+                sys_regs.holdings[HOLDING_STEPPER] = 480;
+            }
+            else if (humi >= 70)
+            {
+                sys_regs.holdings[HOLDING_STEPPER] = 360;
+            }
+            else if (humi >= 60)
+            {
+                sys_regs.holdings[HOLDING_STEPPER] = 240;
+            }
+            else if (humi >= 50)
+            {
+                sys_regs.holdings[HOLDING_STEPPER] = 120;
+            }
+            else
+            {
+                sys_regs.holdings[HOLDING_STEPPER] = 0;
+            }
+        }
+        else
+        {
+            sys_regs.holdings[HOLDING_STEPPER] = 0;
+        }
+    }
+    else
+    {
+        sys_regs.holdings[HOLDING_STEPPER] = 0;
+    }
 }
 
 void Csro_Smart_Control(void)
@@ -170,4 +224,5 @@ void Csro_Smart_Control(void)
     csro_fan_auto_control();
     csro_newair_auto_control();
     csro_heater_auto_control();
+    csro_valve_auto_control();
 }

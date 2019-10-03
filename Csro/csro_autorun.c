@@ -28,13 +28,13 @@ void Csro_Control_init(void)
 
     sys_regs.holdings[HOLDING_CPS_CONTROL] = 0;
     sys_regs.holdings[HOLDING_CPS_MODE] = 0;
-    sys_regs.holdings[HOLDING_CPS_ROOMFAN] = 2;
+    sys_regs.holdings[HOLDING_CPS_ROOMFAN] = 0;
     sys_regs.holdings[HOLDING_CPS_COLD_TEMP] = 250;
-    sys_regs.holdings[HOLDING_CPS_COLD_INTERVAL] = 20;
+    sys_regs.holdings[HOLDING_CPS_COLD_INTERVAL] = 10;
     sys_regs.holdings[HOLDING_CPS_HOT_TEMP] = 250;
-    sys_regs.holdings[HOLDING_CPS_HOT_INTERVAL] = 20;
+    sys_regs.holdings[HOLDING_CPS_HOT_INTERVAL] = 10;
     sys_regs.holdings[HOLDING_AQIT] = 250;
-    sys_regs.holdings[HOLDING_NTC2] = 180;
+    sys_regs.holdings[HOLDING_NTC3] = 180;
     sys_regs.holdings[HOLDING_CPS_ERROR_CODE] = 0;
 
     sys_regs.holdings[HOLDING_EC1] = 500;

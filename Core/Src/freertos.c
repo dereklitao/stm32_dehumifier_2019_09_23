@@ -244,8 +244,8 @@ void task06_stepper_task(void const *argument)
   /* Infinite loop */
   for (;;)
   {
-    osDelay(100);
-    Csro_Stepper_Set_Position(sys_regs.holdings[4]);
+    osDelay(1000);
+    Csro_Stepper_Set_Position(sys_regs.holdings[HOLDING_STEPPER]);
   }
   /* USER CODE END task06_stepper_task */
 }

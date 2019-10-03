@@ -91,12 +91,17 @@ void csro_master_cps_read_write_task(void)
     }
     osDelay(200);
 
-    master_cps.write_addr = 0x1E;
-    master_cps.write_qty = 4;
     int16_t value[5] = {0};
-    value[0] = sys_regs.holdings[HOLDING_CPS_CONTROL];
-    value[2] = sys_regs.holdings[HOLDING_CPS_MODE];
-    value[3] = sys_regs.holdings[HOLDING_CPS_ROOMFAN];
+    master_cps.write_addr = 0x1E;
+    master_cps.write_qty = 1;
+    value[0] = sys_regs.holdings[HOLDING_CPS_CONTROL] + 512;
+    master_write_multi_holding_regs(&master_cps, value);
+    osDelay(200);
+
+    master_cps.write_addr = 0x20;
+    master_cps.write_qty = 2;
+    value[0] = sys_regs.holdings[HOLDING_CPS_MODE];
+    value[1] = sys_regs.holdings[HOLDING_CPS_ROOMFAN];
     master_write_multi_holding_regs(&master_cps, value);
     osDelay(200);
 
@@ -112,7 +117,7 @@ void csro_master_cps_read_write_task(void)
     master_cps.write_addr = 0x51;
     master_cps.write_qty = 3;
     value[0] = sys_regs.holdings[HOLDING_AQIT];
-    value[1] = sys_regs.holdings[HOLDING_NTC2];
+    value[1] = sys_regs.holdings[HOLDING_NTC3];
     value[2] = sys_regs.holdings[HOLDING_CPS_ERROR_CODE];
     master_write_multi_holding_regs(&master_cps, value);
     osDelay(200);
